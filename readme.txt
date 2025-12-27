@@ -4,7 +4,7 @@ Tags: admin bar, autohide, hide, toolbar
 Requires at least: 3.1
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 
 This plugin adds an auto-hide feature to the WordPress Admin Bar or Toolbar.
 
@@ -33,6 +33,9 @@ There are no plans to extend the functionality. Feel free to ask in the [support
 1. The settings page.
 
 == Changelog ==
+
+= 1.7.1 =
+* Just for github intergration
 
 = 1.7.0 - 24-dec-2025 =
 * Big code refactor.
