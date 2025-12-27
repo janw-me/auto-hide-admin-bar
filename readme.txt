@@ -37,7 +37,7 @@ There are no plans to extend the functionality. Feel free to ask in the [support
 = 1.7.0 - 24-dec-2025 =
 * Big code refactor.
 * Follow WP Coding Standards.
-* PHP 7.4 compatibility is in tackt.
+* PHP 7.4 compatibility is intact.
 * No functional changes, nothing changes for users.
 * On the option page, labels have changed.
 * Validate the settings when saving.
