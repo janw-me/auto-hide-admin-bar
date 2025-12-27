@@ -5,6 +5,8 @@ Requires at least: 3.1
 Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.7.1
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin adds an auto-hide feature to the WordPress Admin Bar or Toolbar.
 
