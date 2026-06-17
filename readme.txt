@@ -2,7 +2,7 @@
 Contributors: mbootsman,janwoostendorp
 Tags: admin bar, autohide, hide, toolbar
 Requires at least: 3.1
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.7.1
 License: GPLv2 or later
