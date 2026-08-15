@@ -14,10 +14,13 @@ class Sanitize {
 	/**
 	 * Validate numbers
 	 *
-	 * @param int|string $value The value to sanitize.
-	 * @param Option     $option The option being sanitized.
+	 * @param mixed  $value The value to sanitize.
+	 * @param Option $option The option being sanitized.
 	 */
-	public static function number( $value, Option $option ): int {
+	public static function number( mixed $value, Option $option ): int {
+		if ( ! \is_scalar( $value ) ) {
+			return (int) $option->get_default_value();
+		}
 		$number = \filter_var( $value, \FILTER_VALIDATE_INT );
 		if ( ! \is_int( $number ) ) {
 			return (int) $option->get_default_value();
@@ -32,11 +35,10 @@ class Sanitize {
 	/**
 	 * Validate radion options.
 	 *
-	 * @param int|string $value The value to sanitize.
-	 * @param Option     $option The option being sanitized.
-	 * @return int|string
+	 * @param mixed  $value The value to sanitize.
+	 * @param Option $option The option being sanitized.
 	 */
-	public static function radio( $value, Option $option ) {
+	public static function radio( mixed $value, Option $option ): int|string {
 		$allowed_values = $option->get_allowed_values();
 
 		// Cast numberic values to int.
@@ -44,14 +46,14 @@ class Sanitize {
 			$value = (int) $value;
 		}
 
-		if ( \array_key_exists( $value, $allowed_values ) ) {
+		if ( ( \is_int( $value ) || \is_string( $value ) ) && \array_key_exists( $value, $allowed_values ) ) {
 			return $value;
 		}
 		$default = $option->get_default_value();
 		if ( \is_numeric( $default ) ) {
 			return (int) $default;
 		}
-		return (string) $default; // @phpstan-ignore-line
+		return (string) $default;
 	}
 
 	/**
@@ -76,10 +78,10 @@ class Sanitize {
 	/**
 	 * Validate keyboard character.
 	 *
-	 * @param string|int $value The values to sanitize.
-	 * @param Option     $option The option being sanitized.
+	 * @param mixed  $value The values to sanitize.
+	 * @param Option $option The option being sanitized.
 	 */
-	public static function keyboard_character( $value, Option $option ): string {
+	public static function keyboard_character( mixed $value, Option $option ): string {
 		// Should be a single character.
 		if ( ! \is_string( $value ) || \strlen( $value ) !== 1 ) {
 			return (string) $option->get_default_value();

@@ -1,10 +1,10 @@
 === Auto Hide Admin Bar ===
 Contributors: mbootsman,janwoostendorp
 Tags: admin bar, autohide, hide, toolbar
-Requires at least: 3.1
-Tested up to: 6.9
-Requires PHP: 7.4
-Stable tag: 1.7.1
+Requires at least: 6.0
+Tested up to: 7.0.4
+Requires PHP: 8.4
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,6 @@ Yes, see the [WordPress translations](https://translate.wordpress.org/projects/w
 
 = This plugin was recently adopted, what's the plan? =
 No changes are planned for the end user. The plugin will remain backwards compatible.
-A big code refactor was done. In Q2 2026 the minimum php version will be updated to 8.2.
 There are no plans to extend the functionality. Feel free to ask in the [support forum](http://wordpress.org/support/plugin/auto-hide-admin-bar)
 
 == Screenshots ==
@@ -35,6 +34,11 @@ There are no plans to extend the functionality. Feel free to ask in the [support
 1. The settings page.
 
 == Changelog ==
+
+= 1.8.0 =
+
+* Increased supported PHP version to 8.4
+* Increased supported WordPress to 6.0
 
 = 1.7.1 =
 * Just for github intergration

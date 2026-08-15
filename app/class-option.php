@@ -14,11 +14,6 @@ namespace AHAB\App;
 class Option {
 
 	/**
-	 * Option slug / name.
-	 */
-	protected string $slug;
-
-	/**
 	 * Default value for the option.
 	 *
 	 * @var mixed
@@ -40,26 +35,6 @@ class Option {
 	protected $render_callback;
 
 	/**
-	 * Section where this option is rendered.
-	 */
-	protected ?string $render_section = null;
-
-	/**
-	 * Title shown for this option in the UI.
-	 */
-	protected ?string $render_title = null;
-
-	/**
-	 * Optional description for the option.
-	 */
-	protected ?string $render_description = null;
-
-	/**
-	 * Allowed values for the option (if applicable).
-	 */
-	protected array $allowed_values = array();
-
-	/**
 	 * Register a sub option of AHAB
 	 *
 	 * @param string    $slug The option slug.
@@ -72,23 +47,18 @@ class Option {
 	 * @param array     $allowed_values Optional allowed values for the option. Value => Label pairs.
 	 */
 	public function __construct(
-		string $slug,
-		$default_value = null,
+		protected string $slug,
+		mixed $default_value = null,
 		?callable $sanitize_callback = null,
 		?callable $render_callback = null,
-		?string $render_section = null,
-		?string $render_title = null,
-		?string $render_description = null,
-		array $allowed_values = array()
+		protected ?string $render_section = null,
+		protected ?string $render_title = null,
+		protected ?string $render_description = null,
+		protected array $allowed_values = array()
 	) {
-		$this->slug               = $slug;
-		$this->default_value      = $default_value;
-		$this->sanitize_callback  = $sanitize_callback;
-		$this->render_callback    = $render_callback;
-		$this->render_section     = $render_section;
-		$this->render_title       = $render_title;
-		$this->render_description = $render_description;
-		$this->allowed_values     = $allowed_values;
+		$this->default_value     = $default_value;
+		$this->sanitize_callback = $sanitize_callback;
+		$this->render_callback   = $render_callback;
 	}
 
 	public function get_slug(): string {
@@ -97,10 +67,8 @@ class Option {
 
 	/**
 	 * Get the default value.
-	 *
-	 * @return array|int|string|bool|null
 	 */
-	public function get_default_value() {
+	public function get_default_value(): mixed {
 		return $this->default_value;
 	}
 
@@ -132,9 +100,8 @@ class Option {
 	 * Sanitize the given value
 	 *
 	 * @param mixed $value The value to sanitize.
-	 * @return mixed
 	 */
-	public function sanitize( $value ) {
+	public function sanitize( mixed $value ): mixed {
 		if ( \is_callable( $this->sanitize_callback ) ) {
 			return \call_user_func( $this->sanitize_callback, $value, $this );
 		}
@@ -143,10 +110,8 @@ class Option {
 
 	/**
 	 * Get the current value of the option
-	 *
-	 * @return array|int|string|bool|null
 	 */
-	public function get_current_value() {
+	public function get_current_value(): mixed {
 		$options = \get_option( Options::OPTION_NAME );
 
 		if ( ! empty( $options[ $this->slug ] ) ) {

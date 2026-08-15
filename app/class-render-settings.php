@@ -44,8 +44,6 @@ class Render_Settings {
 		}
 		/**
 		 * The current option.
-		 *
-		 * @var Option $option
 		 */
 		$option = $args['option'];
 
@@ -80,8 +78,6 @@ class Render_Settings {
 		}
 		/**
 		 * The current option.
-		 *
-		 * @var Option $option
 		 */
 		$option = $args['option'];
 
@@ -116,8 +112,6 @@ class Render_Settings {
 		}
 		/**
 		 * The current option.
-		 *
-		 * @var Option $option
 		 */
 		$option = $args['option'];
 
@@ -155,8 +149,6 @@ class Render_Settings {
 		}
 		/**
 		 * The current option.
-		 *
-		 * @var Option $option
 		 */
 		$option = $args['option'];
 		echo '<fieldset>';
@@ -211,7 +203,7 @@ class Render_Settings {
 	 * @param array   $attributes Attributes for the input field.
 	 * @param ?string $label_text Optional label text.
 	 */
-	protected static function generate_input_tag( array $attributes = array(), string $label_text = null ): string {
+	protected static function generate_input_tag( array $attributes = array(), ?string $label_text = null ): string {
 		$input_html = '<input ';
 		foreach ( $attributes as $attribute => $value ) {
 			if ( \is_string( $attribute ) ) {

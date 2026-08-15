@@ -54,7 +54,7 @@ class Settings {
 				$option->get_render_callback(),
 				'ahab_plugin',
 				$option->get_render_section(),
-				array(
+				array( // @phpstan-ignore-line Extra arguments are allowed.
 					'option'    => $option,
 					'label_for' => 'ahab_setting_' . $option->get_slug(),
 				)
@@ -67,7 +67,7 @@ class Settings {
 	 *
 	 * @param mixed $values The values that are send to be saved.
 	 */
-	public static function save( $values ): array {
+	public static function save( mixed $values ): array {
 		if ( ! \is_array( $values ) ) {
 			$values = array();
 		}

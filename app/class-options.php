@@ -181,9 +181,8 @@ class Options {
 	 * Get the value of a single option.
 	 *
 	 * @param string $slug The option slug.
-	 * @return mixed
 	 */
-	public static function get_option_value( string $slug ) {
+	public static function get_option_value( string $slug ): mixed {
 		$option = self::get_option( $slug );
 		return $option->get_current_value();
 	}
